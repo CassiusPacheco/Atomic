@@ -38,6 +38,10 @@ public final class Atomic<Value> {
         }
     }
 
+    public var projectedValue: Atomic<Value> {
+        return self
+    }
+
     /// Synchronises mutation to ensure the value doesn't get changed by another thread during this mutation.
     public func mutate(_ mutation: (inout Value) -> Void) {
         lock.lock()
